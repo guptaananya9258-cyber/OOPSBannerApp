@@ -1,17 +1,10 @@
 import java.util.HashMap;
-import java.util.Map;
 
 class CharacterPattern {
-    private char character;
-    private String[] pattern;
+    String[] pattern;
 
-    public CharacterPattern(char character, String[] pattern) {
-        this.character = character;
+    CharacterPattern(String[] pattern) {
         this.pattern = pattern;
-    }
-
-    public String[] getPattern() {
-        return pattern;
     }
 }
 
@@ -19,9 +12,9 @@ public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        Map<Character, CharacterPattern> patternMap = new HashMap<>();
+        HashMap<Character, CharacterPattern> patterns = new HashMap<>();
 
-        patternMap.put('O', new CharacterPattern('O', new String[]{
+        patterns.put('O', new CharacterPattern(new String[]{
                 " ***** ",
                 "*     *",
                 "*     *",
@@ -31,7 +24,7 @@ public class OOPSBannerApp {
                 " ***** "
         }));
 
-        patternMap.put('P', new CharacterPattern('P', new String[]{
+        patterns.put('P', new CharacterPattern(new String[]{
                 " ***** ",
                 "*     *",
                 "*     *",
@@ -41,7 +34,7 @@ public class OOPSBannerApp {
                 "*      "
         }));
 
-        patternMap.put('S', new CharacterPattern('S', new String[]{
+        patterns.put('S', new CharacterPattern(new String[]{
                 " ***** ",
                 "*      ",
                 "*      ",
@@ -52,16 +45,11 @@ public class OOPSBannerApp {
         }));
 
         String word = "OOPS";
-        int height = 7;
 
-        for (int i = 0; i < height; i++) {
+        for (int i = 0; i < 7; i++) {
 
             for (char c : word.toCharArray()) {
-                CharacterPattern cp = patternMap.get(c);
-
-                if (cp != null) {
-                    System.out.print(cp.getPattern()[i] + "   ");
-                }
+                System.out.print(patterns.get(c).pattern[i] + "   ");
             }
 
             System.out.println();
